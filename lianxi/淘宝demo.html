@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .titleh1{
+            font-size: 14px;
+            color: orange;
+            font-weight: bold;
+        }
+        .con{
+
+            float: left;
+            width: 180px;
+            margin: 10px;
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+<body>
+<input type="text" placeholder="请输入最低值" id="inputa">
+<input type="text" placeholder="请输入最高值" id="inputb">
+<button onclick="fun()">确定</button>
+
+
+<div id="demodiv">
+
+
+
+</div>
+
+        <script>
+
+            var obj=[
+                {title:" 1半身裙女春2019新款网纱裙很仙的裙子百褶裙仙女裙",jia:18.5,img:"img/img1.jpg"},
+                {title:" 2半身裙女春2019新款网纱裙很仙的裙子百褶裙仙女裙",jia:99,img:"img/img2.jpg"},
+                {title:" 3半身裙女春2019新款网纱裙很仙的裙子百褶裙仙女裙",jia:13,img:"img/img3.jpg"},
+                {title:" 4半身裙女春2019新款网纱裙很仙的裙子百褶裙仙女裙",jia:25,img:"img/img4.jpg"},
+                {title:" 5半身裙女春2019新款网纱裙很仙的裙子百褶裙仙女裙",jia:9.9,img:"img/img5.jpg"},
+                {title:" 6半身裙女春2019新款网纱裙很仙的裙子百褶裙仙女裙",jia:1350,img:"img/img6.jpg"},
+                {title:" 7半身裙女春2019新款网纱裙很仙的裙子百褶裙仙女裙",jia:499,img:"img/img1.jpg"},
+                {title:" 8半身裙女春2019新款网纱裙很仙的裙子百褶裙仙女裙",jia:39,img:"img/img2.jpg"},
+                {title:" 9半身裙女春2019新款网纱裙很仙的裙子百褶裙仙女裙",jia:85,img:"img/img3.jpg"},
+                {title:" 10半身裙女春2019新款网纱裙很仙的裙子百褶裙仙女裙",jia:96,img:"img/img4.jpg"},
+                {title:" 11半身裙女春2019新款网纱裙很仙的裙子百褶裙仙女裙",jia:123,img:"img/img5.jpg"},
+                {title:" 12半身裙女春2019新款网纱裙很仙的裙子百褶裙仙女裙",jia:38,img:"img/img6.jpg"},
+                {title:" 13半身裙女春2019新款网纱裙很仙的裙子百褶裙仙女裙",jia:75,img:"img/img1.jpg"},
+                {title:" 14半身裙女春2019新款网纱裙很仙的裙子百褶裙仙女裙",jia:548,img:"img/img2.jpg"},
+                {title:" 15半身裙女春2019新款网纱裙很仙的裙子百褶裙仙女裙",jia:326,img:"img/img3.jpg"},
+                {title:" 16半身裙女春2019新款网纱裙很仙的裙子百褶裙仙女裙",jia:965,img:"img/img4.jpg"}
+            ]
+            var newHtml=""
+            for(var i in obj){
+                newHtml+=" <div class='con' onmouseenter='funa("+i+")' onmouseleave='funb("+i+")'>  <img src='"+obj[i].img+"'>  <p>￥"+obj[i].jia+"</p><h1 class='titleh1'>"+obj[i].title+"</h1> </div>"
+            }
+
+            document.getElementById("demodiv").innerHTML=newHtml
+
+
+
+            function fun() {
+                var inputa=document.getElementById("inputa").value;
+                var inputb=document.getElementById("inputb").value;
+
+//                filter反回一个过滤后的内容
+                var newobj=obj.filter(function(v,i){
+                    return v.jia>=inputa&&v.jia<=inputb
+                })
+//                console.log(newobj)
+                var newHtml=""
+                for(var i in newobj){
+                    newHtml+=" <div class='con' onmouseenter='funa("+i+")' onmouseleave='funb("+i+")'>  <img src='"+newobj[i].img+"'>  <p>￥"+newobj[i].jia+"</p><h1 class='titleh1'>"+newobj[i].title+"</h1> </div>"
+                }
+
+                document.getElementById("demodiv").innerHTML=newHtml
+            }
+
+                function funa(i) {
+                   document.getElementsByClassName("con")[i].style.border="1px solid red"
+                }
+
+                function funb(i) {
+                    document.getElementsByClassName("con")[i].style.border="1px solid gray"
+                }
+
+
+
+
+
+        </script>
+
+
+</body>
+</html>
